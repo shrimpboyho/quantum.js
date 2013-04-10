@@ -15,7 +15,15 @@
   <meta name="description" content="A jQuery Extension">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
+<style type="text/css" media="screen">
+    #editor { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style>
 </head>
 
 <body>
@@ -40,9 +48,12 @@
 
 <p>Finer control over those iFrames...</p>
 
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<div id="editor">function foo(items) {
+    $("iframe").injectHTML("<textarea></textarea>");
+    $("iframe").$('element_in_iframe').click(function(){
+    alert("Wow. I have complete control.");
+});
+}</div>
 
 <h3>Rather Drive Stick?</h3>
 
@@ -71,6 +82,11 @@
     <p class="name"></p>
   </div>
 
-  
+  <script src="http://rawgithub.com/ajaxorg/ace-builds/master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
 </body>
 </html>
